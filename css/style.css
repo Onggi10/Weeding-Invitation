@@ -292,15 +292,18 @@ section {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+#gallery .gallery-grid {
+	min-height: 400px;
+}
   #gallery .gallery-grid img {
-    height: 180px;
+    height: 500px;
     /* Adjust the height for smaller screens */
   }
 }
 
 @media (max-width: 576px) {
   #gallery .gallery-grid img {
-    height: 150px;
+    height: 500px;
     /* Smaller images on very small screens */
   }
 }
