@@ -1,10 +1,11 @@
 /* Reset and Base Styles */
-html, body{
-	margin: 0;
-	padding: 0;
-	width: 100%;
-	height: 100%;
-	overflow-x: hidden;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -78,7 +79,8 @@ section {
 
 /* page background */
 .page-3,
-.page-4 {
+.page-4,
+.page-5 {
   background-color: var(--light-bg);
 }
 
@@ -143,28 +145,29 @@ section {
 }
 
 #about .card {
-	border: none;
-	border-radius: 10px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #about .card-title {
-	font-size: 1.5rem;
-	color: #495057;
-	margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #495057;
+  margin-bottom: 10px;
 }
 
 #about .card-text {
-	font-size: 1rem;
-	line-height: 1.6;
-	color: #6c757d;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #6c757d;
 }
 
 #about .card-img-top {
-	padding: 80px;
-	object-fit: cover;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
+  padding: 80px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 /* Event Details Section */
@@ -188,69 +191,69 @@ section {
 
 /* Styling Countdown Section */
 #countdown {
-	background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-	border-radius: 20px;
-	padding: 30px;
-	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-	margin-top: 30px;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  margin-top: 30px;
 }
 
 #countdown .countdown-header {
-	font-size: 1.8rem;
-	font-weight: bold;
-	color: #495057;
-	margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #495057;
+  margin-bottom: 20px;
 }
 
 .countdown-container {
-	display: flex;
-	gap: 30px;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .time-box {
-	background: #fff;
-	border-radius: 15px;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-	padding: 20px 30px;
-	text-align: center;
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px 30px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .time-box:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .time-number {
-	font-size: 3rem;
-	font-weight: 700;
-	color: #343a40;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #343a40;
 }
 
 .time-label {
-	font-size: 1rem;
-	font-weight: 600;
-	color: #6c757d;
-	text-transform: uppercase;
-	letter-spacing: 1px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Responsive Styling */
 @media (max-width: 768px) {
-	.time-box {
-		padding: 15px 20px;
-	}
+  .time-box {
+    padding: 15px 20px;
+  }
 
-	.time-number {
-		font-size: 2.5rem;
-	}
+  .time-number {
+    font-size: 2.5rem;
+  }
 
-	.time-label {
-		font-size: 0.9rem;
-	}
+  .time-label {
+    font-size: 0.9rem;
+  }
 }
 
 /* Gallery Section */
@@ -292,9 +295,9 @@ section {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-#gallery .gallery-grid {
-	min-height: 400px;
-}
+  #gallery .gallery-grid {
+    min-height: 400px;
+  }
   #gallery .gallery-grid img {
     height: 500px;
     /* Adjust the height for smaller screens */
@@ -423,6 +426,11 @@ dialog {
 @media (max-width: 1200px) {
   .navbar-brand {
     font-size: 1.25rem;
+    padding: 50px;
+  }
+
+  .navbar-toggler {
+    padding: 20px;
   }
 
   .navbar-nav .nav-item .nav-link {
@@ -433,10 +441,10 @@ dialog {
     font-size: 2.5rem;
   }
 
-.judul_halaman h2 {
-	text-align: center;
-	padding: 50px;
-}
+  .judul_halaman h2 {
+    text-align: center;
+    padding: 50px;
+  }
 
   #gallery img {
     margin-bottom: 15px;
@@ -444,8 +452,16 @@ dialog {
 }
 
 @media (max-width: 768px) {
+  .navbar-brand {
+    padding: 50px;
+  }
+
   .navbar-collapse {
-    padding: 10px;
+    padding: 20px;
+  }
+
+  .navbar-toggler {
+    padding: 20px;
   }
 
   .navbar-nav .nav-item .nav-link {
@@ -466,8 +482,12 @@ dialog {
 }
 
 @media (max-width: 576px) {
+  .navbar-toggler {
+    padding: 20px;
+  }
   .navbar-brand {
     font-size: 1.1rem;
+    padding: 20px;
   }
 
   .navbar-nav .nav-item .nav-link {
