@@ -1,0 +1,153 @@
+/* Reset CSS */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Import Font dari Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap");
+
+/* Styling untuk Halaman */
+body {
+  background-image: url("../img/bunga.jpg"); /* URL background gambar */
+  background-size: cover; /* Menyesuaikan ukuran gambar dengan layar */
+  background-position: center; /* Memusatkan gambar */
+  background-attachment: fixed; /* Membuat gambar tetap saat di-scroll */
+  font-family: "Open Sans", sans-serif;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Kontainer Undangan */
+.invitation {
+  background: rgba(255, 255, 255, 0.95); /* Latar semi-transparan */
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+  padding: 50px;
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  animation: fadeIn 1s ease-in-out;
+}
+/* Bingkai Dekoratif pada Kontainer */
+.invitation::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 3px solid #c97c5d;
+  border-radius: 25px;
+  z-index: -1;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Efek bayangan pada bingkai */
+}
+
+/* Judul Utama */
+h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: 3rem;
+  color: #c97c5d;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Deskripsi Undangan */
+p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Nama Pasangan */
+.couple-names {
+  font-family: "Great Vibes", cursive;
+  font-size: 2.5rem;
+  color: #c97c5d;
+  margin: 20px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Nama Tamu */
+#guestName {
+  font-family: "Great Vibes", cursive;
+  font-size: 2.3rem;
+  color: #c97c5d;
+  margin: 20px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* List Informasi Acara */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+ul li {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #666;
+}
+
+/* Tombol Buka Undangan */
+button {
+  font-family: "Open Sans", sans-serif;
+  background: linear-gradient(to right, #f8a392, #f9c3aa); /* Warna gradien lebih lembut */
+  color: white;
+  font-size: 1rem;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Efek Hover pada Tombol */
+button:hover {
+  background: linear-gradient(to right, #f9c3aa, #f8a392);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Efek Animasi Fade-In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsif untuk Layar Kecil */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .couple-names {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 10px 25px;
+  }
+}
