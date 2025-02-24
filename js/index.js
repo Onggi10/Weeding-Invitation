@@ -1,20 +1,30 @@
-// Ambil parameter nama dari URL
-const urlParams = new URLSearchParams(window.location.search);
-const namaTamu = urlParams.get("name"); // Ambil nilai parameter 'name'
+// Tunggu hingga DOM sepenuhnya dimuat
+document.addEventListener("DOMContentLoaded", function () {
+  // Ambil parameter nama dari URL
+  const urlParams = new URLSearchParams(window.location.search);
+  let namaTamu = urlParams.get("nama"); // Ambil nilai parameter 'nama'
 
-// Tampilkan nama di elemen dengan id "guestName"
-if (namaTamu) {
-  document.getElementById("guestName").textContent = namaTamu; // Gunakan namaTamu
-} else {
-  document.getElementById("guestName").textContent =
-    "[Nama Tamu Tidak Diketahui]";
-}
+  // Jika nama tamu ada, bersihkan formatnya
+  if (namaTamu) {
+    namaTamu = decodeURIComponent(namaTamu); // Ubah karakter URL encoding menjadi teks biasa
+    namaTamu = namaTamu.replace(/[-_]/g, " "); // Ganti '-' atau '_' dengan spasi
+  } else {
+    namaTamu = "[Nama Tamu Tidak Diketahui]"; // Default jika nama tidak ditemukan
+  }
 
-// Ambil elemen tombol
-const openInvitationButton = document.getElementById("openInvitation");
+  // Tampilkan nama di elemen dengan id "guestName" jika elemen ada
+  const guestNameElement = document.getElementById("guestName");
+  if (guestNameElement) {
+    guestNameElement.textContent = `${namaTamu}`;
+  }
 
-// Tambahkan event listener ke tombol
-openInvitationButton.addEventListener("click", () => {
-  // Arahkan ke halaman undangan online
-  window.location.href = "undangan.html"; // Ganti dengan URL halaman undangan Anda
+  // Ambil elemen tombol jika ada
+  const openInvitationButton = document.getElementById("openInvitation");
+  if (openInvitationButton) {
+    // Tambahkan event listener ke tombol
+    openInvitationButton.addEventListener("click", function () {
+      // Arahkan ke halaman undangan online (ganti dengan URL yang benar)
+      window.location.href = "undangan.html"; // Ganti dengan URL halaman undangan Anda
+    });
+  }
 });
