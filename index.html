@@ -5,13 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Undangan Pernikahan</title>
     <link rel="stylesheet" href="./css/index.css" />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      defer
+    ></script>
   </head>
   <body>
     <main class="invitation">
       <h1>Undangan Pernikahan</h1>
-      <h2 class="couple-names">Onggi Sanjaya</h2>
-      <h2 class="And">&</h2>
-      <h2 class="couple-names">Resti Susilawati</h2>
+      <div x-data="{ show: false }" x-init="setTimeout(() => show = true, 500)">
+        <h2
+          class="couple-names"
+          x-show="show"
+          x-transition:enter="transition ease-out duration-700"
+          x-transition:enter-start="opacity-0 translate-y-4"
+          x-transition:enter-end="opacity-100 translate-y-0"
+        >
+          Onggi Sanjaya
+        </h2>
+
+        <h2
+          class="And"
+          x-show="show"
+          x-transition:enter="transition ease-out duration-700 delay-200"
+          x-transition:enter-start="opacity-0 translate-y-4"
+          x-transition:enter-end="opacity-100 translate-y-0"
+        >
+          &
+        </h2>
+
+        <h2
+          class="couple-names"
+          x-show="show"
+          x-transition:enter="transition ease-out duration-700 delay-400"
+          x-transition:enter-start="opacity-0 translate-y-4"
+          x-transition:enter-end="opacity-100 translate-y-0"
+        >
+          Resti Susilawati
+        </h2>
+      </div>
 
       <p class="Ucapan">Assalamualaikum Warahmatullahi Wabarakatuh,</p>
       <p class="Ucapan">Kepada yang terhormat,</p>

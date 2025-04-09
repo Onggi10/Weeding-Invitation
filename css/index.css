@@ -194,3 +194,40 @@ button:hover {
     font-size: 0.95rem;
   }
 }
+
+/* Tambahan untuk transisi Alpine */
+.transition {
+  transition-property: all;
+}
+
+.ease-out {
+  transition-timing-function: ease-out;
+}
+
+.duration-700 {
+  transition-duration: 700ms;
+}
+
+.delay-200 {
+  transition-delay: 200ms;
+}
+
+.delay-400 {
+  transition-delay: 400ms;
+}
+
+.translate-y-4 {
+  transform: translateY(1rem);
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
+.translate-y-0 {
+  transform: translateY(0);
+}
