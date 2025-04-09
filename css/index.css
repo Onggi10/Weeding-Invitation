@@ -2,8 +2,9 @@
 body,
 html {
   margin: 0;
-  padding: 0;
+  padding: 20px;
   box-sizing: border-box;
+  overflow: auto;
 }
 
 /* Import Font dari Google Fonts */
@@ -107,7 +108,10 @@ h1 {
 }
 
 .event-details li {
-  width: 500px;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: left;
   padding: 8px 0;
   border-bottom: 1px dashed #ddd;
   color: #333;
