@@ -38,16 +38,13 @@
         <button
           class="navbar-toggler"
           type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
         >
           <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav ms-auto">
             <li class="nav-item active">
               <a class="nav-link" href="undangan.html">Home</a>
             </li>
@@ -254,11 +251,17 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Konfirmasi Kehadiran</h5>
-            <button type="button" class="close" id="closeModal">&times;</button>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              id="closeModal"
+            ></button>
           </div>
           <div class="modal-body">
             <form id="rsvpForm" name="submit-to-google-sheet">
-              <div class="form-group">
+              <div class="mb-3">
                 <label for="name">Nama Lengkap</label>
                 <input
                   type="text"
@@ -269,7 +272,7 @@
                   required
                 />
               </div>
-              <div class="form-group">
+              <div class="mb-3">
                 <label for="attendance">Apakah Anda akan hadir?</label>
                 <select
                   class="form-control"
@@ -282,7 +285,7 @@
                   <option value="no">Tidak</option>
                 </select>
               </div>
-              <div class="form-group">
+              <div class="mb-3">
                 <label for="message">Pesan (Opsional)</label>
                 <textarea
                   class="form-control"
@@ -366,7 +369,7 @@
       <section class="container py-5">
         <h2 class="section-title text-center mb-5">Ucapan & Doa</h2>
         <form id="guestbookForm" name="submit-to-google-sheet-guestbook">
-          <div class="form-group">
+          <div class="mb-3">
             <label for="name">Nama:</label>
             <input
               type="text"
@@ -377,7 +380,7 @@
               required
             />
           </div>
-          <div class="form-group">
+          <div class="mb-3">
             <label for="message">Pesan:</label>
             <textarea
               id="message"
@@ -401,7 +404,6 @@
     </footer>
 
     <!-- Bootstrap JS and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 

@@ -451,16 +451,6 @@ dialog {
   font-size: 1.5rem;
 }
 
-.close {
-  color: #333;
-  background: none;
-  border: none;
-}
-
-.close:hover {
-  color: #007bff;
-}
-
 /* Footer Section */
 .footer {
   text-align: center;
