@@ -4,7 +4,7 @@ html {
   margin: 0;
   padding: 20px;
   box-sizing: border-box;
-  overflow: auto;
+  overflow: hidden;
 }
 
 /* Import Font dari Google Fonts */
@@ -31,9 +31,10 @@ body {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  padding: 50px;
+  padding: 40px;
   text-align: center;
   width: 90%;
+  max-height: 750px;
   max-width: 500px;
   animation: fadeIn 1s ease-in-out;
   position: relative;
@@ -104,14 +105,15 @@ h1 {
   margin: 20px auto;
   padding: 0;
   list-style-type: none;
-  max-width: 320px;
+  width: 100%;
+  max-width: 500px;
 }
 
 .event-details li {
   width: 100%;
-  max-width: 300px;
+  max-width: 500px;
   margin: 0 auto;
-  text-align: left;
+  text-align: center;
   padding: 8px 0;
   border-bottom: 1px dashed #ddd;
   color: #333;
@@ -133,7 +135,7 @@ button {
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  margin-top: 25px;
+  margin-top: 10px;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
