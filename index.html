@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Undangan Pernikahan</title>
-    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/index.css" />
 
     <script
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
@@ -12,56 +17,28 @@
     ></script>
   </head>
   <body>
-    <main class="invitation">
-      <h1>Undangan Pernikahan</h1>
-      <div x-data="{ show: false }" x-init="setTimeout(() => show = true, 500)">
-        <h2
-          class="couple-names"
-          x-show="show"
-          x-transition:enter="transition ease-out duration-700"
-          x-transition:enter-start="opacity-0 translate-y-4"
-          x-transition:enter-end="opacity-100 translate-y-0"
-        >
-          Onggi Sanjaya
-        </h2>
+    <div class="invitation">
+      <div
+        class="detail"
+        x-data="{ show: false }"
+        x-init="setTimeout(() => show = true, 500)"
+        x-show="show"
+        x-transition:enter="transition ease-out duration-700"
+        x-transition:enter-start="opacity-0 scale-75"
+        x-transition:enter-end="opacity-100 scale-100"
+      >
+        <p class="subtitle">The Wedding</p>
+        <h1 class="names">Onggi Sanjaya</h1>
+        <h2 class="and">&</h2>
+        <h1 class="names">Resti Susilawati</h1>
 
-        <h2
-          class="And"
-          x-show="show"
-          x-transition:enter="transition ease-out duration-700 delay-200"
-          x-transition:enter-start="opacity-0 translate-y-4"
-          x-transition:enter-end="opacity-100 translate-y-0"
-        >
-          &
-        </h2>
+        <p class="greeting">Assalamualaikum Warahmatullahi Wabarakatuh,</p>
+        <p class="honored">Kepada yang terhormat,</p>
+        <p id="guestName" class="signature">[Nama Tamu]</p>
 
-        <h2
-          class="couple-names"
-          x-show="show"
-          x-transition:enter="transition ease-out duration-700 delay-400"
-          x-transition:enter-start="opacity-0 translate-y-4"
-          x-transition:enter-end="opacity-100 translate-y-0"
-        >
-          Resti Susilawati
-        </h2>
+        <button id="openInvitation" class="button">Buka Undangan</button>
       </div>
-
-      <p class="Ucapan">Assalamualaikum Warahmatullahi Wabarakatuh,</p>
-      <p class="Ucapan">Kepada yang terhormat,</p>
-      <h2 id="guestName">[Nama Tamu]</h2>
-      <p class="Ucapan">
-        Dengan bahagia kami mengundang Anda untuk hadir pada acara pernikahan
-        kami:
-      </p>
-
-      <ul class="event-details">
-        <li><strong>Tanggal:</strong> 12 Juni 2025</li>
-        <li><strong>Waktu:</strong> 10:00 - 14:00 WIB</li>
-        <li><strong>Lokasi:</strong> Rumah Mempelai Wanita, Cianjur</li>
-      </ul>
-
-      <button id="openInvitation">Buka Undangan</button>
-    </main>
-    <script src="./js/index.js"></script>
+    </div>
   </body>
+  <script src="./js/index.js"></script>
 </html>

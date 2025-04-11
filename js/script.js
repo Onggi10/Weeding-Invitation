@@ -1,5 +1,6 @@
 // URL Google Apps Script untuk mengirim data formulir
-const scriptURL = "https://script.google.com/macros/s/AKfycbxwPwpB1-X7iJOj6_H0h7VH_g-tVOzh8ZxiicIclUVtBN8kUEnWWgtbRjjZw1xEkEwcTQ/exec";
+const scriptURL =
+  "https://script.google.com/macros/s/AKfycbxwPwpB1-X7iJOj6_H0h7VH_g-tVOzh8ZxiicIclUVtBN8kUEnWWgtbRjjZw1xEkEwcTQ/exec";
 
 // ---------------------------------------
 // Utility Functions
@@ -9,44 +10,27 @@ function showLoadingMessage(form, message, show = true) {
   if (loadingMessage) {
     loadingMessage.style.display = show ? "block" : "none";
     loadingMessage.textContent = message;
-  } else {
-    console.warn("Loading message element tidak ditemukan.");
   }
 }
 
 function disableSubmitButton(form, disable = true) {
   const submitButton = form.querySelector('button[type="submit"]');
-  if (submitButton) {
-    submitButton.disabled = disable;
-  } else {
-    console.warn("Tombol submit tidak ditemukan.");
-  }
+  if (submitButton) submitButton.disabled = disable;
 }
 
 // ---------------------------------------
-// Modal Handlers
-// ---------------------------------------
+// Modal Handlers (native <dialog>)
 const modal = document.getElementById("rsvpModal");
-
 if (modal) {
-  const openModalButton = document.getElementById("openModal");
-  const closeModalButton = document.getElementById("closeModal");
+  document.getElementById("openModal")?.addEventListener("click", () => {
+    modal.showModal();
+    document.body.classList.add("modal-open");
+  });
 
-  if (openModalButton) {
-    openModalButton.addEventListener("click", () => {
-      modal.showModal();
-      document.body.classList.add("modal-open");
-    });
-  } else {
-    console.warn("Tombol buka modal tidak ditemukan.");
-  }
-
-  if (closeModalButton) {
-    closeModalButton.addEventListener("click", () => {
-      modal.close();
-      document.body.classList.remove("modal-open");
-    });
-  }
+  document.getElementById("closeModal")?.addEventListener("click", () => {
+    modal.close();
+    document.body.classList.remove("modal-open");
+  });
 
   modal.addEventListener("click", (event) => {
     if (event.target === modal) {
@@ -54,142 +38,154 @@ if (modal) {
       document.body.classList.remove("modal-open");
     }
   });
-} else {
-  console.warn("Modal tidak ditemukan.");
 }
+
+//Swipper
+const swiper = new Swiper(".mySwiper", {
+  loop: true,
+  spaceBetween: 20,
+  slidesPerView: 1,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
 
 // ---------------------------------------
 // Form Submission Handlers
-// ---------------------------------------
 function handleFormSubmission(form, formType, successMessage) {
-  if (!form) {
-    console.error("Form tidak ditemukan");
-    return;
-  }
+  if (!form) return;
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Validasi input
-    const inputs = Array.from(form.querySelectorAll("input, textarea"));
-    const isValid = inputs.every((input) => (input.required ? input.value.trim() !== "" : true));
+    const inputs = Array.from(form.querySelectorAll("input, textarea, select"));
+    const isValid = inputs.every((input) =>
+      input.required ? input.value.trim() !== "" : true
+    );
 
     if (!isValid) {
       alert("Semua field wajib diisi dengan benar!");
       return;
     }
 
-    // Tambahkan formType ke FormData
     const formData = new FormData(form);
     formData.append("formType", formType);
 
-    // Tampilkan loading dan nonaktifkan tombol submit
-    showLoadingMessage(form, "Mengirim data, harap tunggu...", true);
+    showLoadingMessage(form, "Mengirim data, harap tunggu...");
     disableSubmitButton(form, true);
 
-    fetch(scriptURL, {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => {
-        console.log("Response status:", response.status);
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Response data:", data);
-        alert(successMessage);
-        form.reset();
-      })
-      .catch((error) => {
-        console.error("Error pengiriman:", error);
-        alert("Terjadi kesalahan saat mengirim data. Silakan coba lagi.");
-      })
-      .finally(() => {
-        showLoadingMessage(form, "", false);
-        disableSubmitButton(form, false);
+    try {
+      const response = await fetch(scriptURL, {
+        method: "POST",
+        body: formData,
       });
+
+      if (!response.ok) throw new Error("Respon tidak berhasil");
+
+      const data = await response.json();
+      console.log("Response:", data);
+      alert(successMessage);
+      form.reset();
+    } catch (error) {
+      console.error("Error pengiriman:", error);
+      alert("Terjadi kesalahan saat mengirim data. Silakan coba lagi.");
+    } finally {
+      showLoadingMessage(form, "", false);
+      disableSubmitButton(form, false);
+    }
   });
 }
 
 // ---------------------------------------
-// Konfirmasi Kehadiran Form
-// ---------------------------------------
-const rsvpForm = document.forms["submit-to-google-sheet"];
-if (rsvpForm) {
-  console.log("Form konfirmasi kehadiran ditemukan.");
-  handleFormSubmission(rsvpForm, "kehadiran", "Formulir Kehadiran berhasil dikirim!");
-} else {
-  console.warn("Form konfirmasi kehadiran tidak ditemukan.");
-}
-
-// ---------------------------------------
-// Buku Tamu Form
-// ---------------------------------------
-const guestbookForm = document.forms["submit-to-google-sheet-guestbook"];
-if (guestbookForm) {
-  console.log("Form buku tamu ditemukan.");
-  handleFormSubmission(guestbookForm, "bukuTamu", "Pesan Buku Tamu berhasil dikirim!");
-} else {
-  console.warn("Form buku tamu tidak ditemukan.");
-}
-
-// ---------------------------------------
-// Animasi Hamburger Menu
-// ---------------------------------------
+// DOM Loaded
 document.addEventListener("DOMContentLoaded", () => {
-  const navbarToggler = document.querySelector(".navbar-toggler");
-  if (navbarToggler) {
-    navbarToggler.addEventListener("click", function () {
+  // Bind Form
+  const rsvpForm = document.forms["submit-to-google-sheet"];
+  const guestbookForm = document.forms["submit-to-google-sheet-guestbook"];
+
+  if (rsvpForm) {
+    handleFormSubmission(
+      rsvpForm,
+      "kehadiran",
+      "Formulir Kehadiran berhasil dikirim!"
+    );
+  }
+
+  if (guestbookForm) {
+    handleFormSubmission(
+      guestbookForm,
+      "bukuTamu",
+      "Pesan Buku Tamu berhasil dikirim!"
+    );
+  }
+
+  // Hamburger animation
+  document
+    .querySelector(".navbar-toggler")
+    ?.addEventListener("click", function () {
       this.classList.toggle("open");
     });
-  } else {
-    console.warn("Tombol hamburger menu tidak ditemukan.");
+
+  // Fullscreen section sizing
+  function setFullScreenHeight() {
+    const sections = document.querySelectorAll("section");
+    const navbarHeight = document.querySelector(".navbar")?.offsetHeight || 0;
+    const viewportHeight = window.innerHeight;
+
+    sections.forEach((section) => {
+      section.style.minHeight = `${viewportHeight - navbarHeight}px`;
+    });
   }
-});
+  window.addEventListener("load", setFullScreenHeight);
+  window.addEventListener("resize", setFullScreenHeight);
+  setFullScreenHeight();
 
-// // ---------------------------------------
-// // Fullscreen Section Handling
-// // ---------------------------------------
-function setFullScreenHeight() {
-  const sections = document.querySelectorAll("section");
-  const navbar = document.querySelector(".navbar");
-  const navbarHeight = navbar ? navbar.offsetHeight : 0;
-  const viewportHeight = window.innerHeight;
+  // Countdown
+  const eventDate = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+  const countdownEl = document.getElementById("countdown");
 
-  sections.forEach((section) => {
-    section.style.minHeight = `${viewportHeight - navbarHeight}px`;
+  if (countdownEl) {
+    const updateCountdown = () => {
+      const now = Date.now();
+      const timeLeft = eventDate - now;
+
+      if (timeLeft > 0) {
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((timeLeft / (1000 * 60)) % 60);
+        const seconds = Math.floor((timeLeft / 1000) % 60);
+
+        ["days", "hours", "minutes", "seconds"].forEach((id, i) => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = [days, hours, minutes, seconds][i];
+        });
+      } else {
+        clearInterval(countdownInterval);
+        countdownEl.innerHTML = "<h3>Acara telah dimulai!</h3>";
+      }
+    };
+
+    const countdownInterval = setInterval(updateCountdown, 1000);
+    updateCountdown();
+  }
+
+  // Smooth scroll with offset + auto-collapse navbar (tanpa setTimeout)
+  document.querySelectorAll('.nav-link[href^="#"]').forEach((link) => {
+    link.addEventListener("click", () => {
+      const navbarCollapse = document.querySelector(".navbar-collapse");
+
+      if (navbarCollapse?.classList.contains("show")) {
+        const bsCollapse =
+          bootstrap.Collapse.getInstance(navbarCollapse) ||
+          new bootstrap.Collapse(navbarCollapse);
+
+        bsCollapse.hide();
+      }
+    });
   });
-}
-
-// Tentukan tanggal acara otomatis (1 minggu dari sekarang)
-const currentDate = new Date();
-const eventDate = new Date(currentDate.getTime() + 7 * 24 * 60 * 60 * 1000); // 7 hari ke depan
-
-function updateCountdown() {
-  const now = new Date().getTime();
-  const timeLeft = eventDate.getTime() - now;
-
-  if (timeLeft > 0) {
-    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-    // Update DOM
-    document.getElementById('days').textContent = days;
-    document.getElementById('hours').textContent = hours;
-    document.getElementById('minutes').textContent = minutes;
-    document.getElementById('seconds').textContent = seconds;
-  } else {
-    // Jika waktu telah berlalu
-    clearInterval(countdownInterval); // Hentikan interval
-    document.getElementById('countdown').innerHTML = '<h3>Acara telah dimulai!</h3>';
-  }
-}
-
-// Jalankan setiap detik
-const countdownInterval = setInterval(updateCountdown, 1000);
-updateCountdown(); // Panggil sekali untuk memastikan tampilan langsung muncul
-
-window.addEventListener("load", setFullScreenHeight);
-window.addEventListener("resize", setFullScreenHeight);
+});
