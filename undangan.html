@@ -28,13 +28,13 @@
   </head>
   <body>
     <!-- Tambahkan Elemen Audio untuk Memutar Lagu -->
-    <audio autoplay loop>
+    <!-- <audio autoplay loop>
       <source
         src="music/Westlife -  Beautiful in white (Lyrics).mp3"
         type="audio/mp3"
       />
       Your browser does not support the audio element.
-    </audio>
+    </audio> -->
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
@@ -95,7 +95,9 @@
     <!-- Orang Tua Mempelai Section -->
     <div class="page-section page-5" id="parents">
       <section class="container py-5">
-        <h2 class="section-title text-center mb-5">Orang Tua Kami</h2>
+        <h2 class="section-title text-center mb-5">
+          <i class="fas fa-venus-mars text-success"></i> Orang Tua Kami
+        </h2>
         <div class="row justify-content-center">
           <!-- Orang Tua Mempelai Pria -->
           <div class="col-md-5 mb-4">
@@ -136,7 +138,9 @@
     <!-- About Section -->
     <div class="page-section" id="about">
       <section class="container py-5">
-        <h2 class="section-title text-center mb-5">Tentang Kami</h2>
+        <h2 class="section-title text-center mb-5">
+          <i class="fa-solid fa-address-card text-warning"></i> Tentang Kami
+        </h2>
 
         <div class="row g-4">
           <!-- Kisah Kami -->
@@ -202,7 +206,7 @@
     <div class="page-section page-3" id="event">
       <section class="container py-5 text-center">
         <h2 class="section-title text-center mb-5">
-          <i class="fas fa-calendar-days me-2"></i>Detail Acara
+          <i class="fas fa-calendar-days me-2 text-primary"></i>Detail Acara
         </h2>
 
         <div class="row g-4">
@@ -211,13 +215,14 @@
             <div class="card shadow-lg rounded-4 p-3 h-100">
               <div class="card-body">
                 <h3 class="card-title">
-                  <i class="fas fa-ring me-2"></i> Akad Nikah
+                  <i class="fas fa-ring me-2 text-warning"></i> Akad Nikah
                 </h3>
                 <p class="card-text">
-                  <i class="fas fa-calendar-alt me-2"></i> 11 Juni 2025
+                  <i class="fas fa-calendar-alt me-2 text-danger"></i> 11 Juni
+                  2025
                 </p>
                 <p class="card-text">
-                  <i class="fas fa-clock me-2"></i> 08:00 - 10:00
+                  <i class="fas fa-clock me-2 text-success"></i> 08:00 - 10:00
                 </p>
               </div>
             </div>
@@ -228,13 +233,15 @@
             <div class="card shadow-lg rounded-4 p-3 h-100">
               <div class="card-body">
                 <h3 class="card-title">
-                  <i class="fas fa-champagne-glasses me-2"></i> Resepsi
+                  <i class="fas fa-champagne-glasses me-2 text-warning"></i>
+                  Resepsi
                 </h3>
                 <p class="card-text">
-                  <i class="fas fa-calendar-alt me-2"></i> 12 Juni 2025
+                  <i class="fas fa-calendar-alt me-2 text-danger"></i> 12 Juni
+                  2025
                 </p>
                 <p class="card-text">
-                  <i class="fas fa-clock me-2"></i> 10:00 - 20:00
+                  <i class="fas fa-clock me-2 text-success"></i> 10:00 - 20:00
                 </p>
               </div>
             </div>
@@ -244,8 +251,8 @@
         <!-- Countdown Timer -->
         <div id="countdown" class="py-5">
           <h3 class="countdown-header mb-4">
-            <i class="fas fa-hourglass-half me-2"></i>Hitung Mundur Menuju Hari
-            Bahagia
+            <i class="fas fa-hourglass-half me-2 text-success"></i>Hitung Mundur
+            Menuju Hari Bahagia
           </h3>
           <div
             class="countdown-container d-flex justify-content-center gap-4 flex-wrap"
@@ -274,7 +281,9 @@
     <!-- Gallery Section -->
     <div class="page-section" id="gallery">
       <section class="container py-5 text-center">
-        <h2 class="section-title text-center mb-5">Galeri</h2>
+        <h2 class="section-title text-center mb-5">
+          <i class="fa-solid fa-image text-success"></i> Galeri
+        </h2>
 
         <!-- Carousel for the rest -->
         <div class="swiper mySwiper" style="max-width: 600px; margin: 0 auto">
@@ -361,24 +370,26 @@
     </div>
 
     <!-- Gift Section -->
-    <div class="page-5">
+    <div class="page-section page-5">
       <section id="gift" class="container py-5">
-        <h2 class="section-title text-center mb-5">Gift</h2>
-        <h4 class="text-center mb-5">
+        <h2 class="section-title text-center mb-5">
+          <i class="fas fa-gift text-primary me-2"></i>Gift
+        </h2>
+
+        <h4 class="text-center mb-4">
           Tanpa mengurangi rasa hormat, bagi Bapak/Ibu yang ingin memberikan
           tanda kasih, dapat melalui rekening berikut:
         </h4>
 
         <div class="row g-4">
           <!-- Kolom Kiri -->
-          <div class="col-md-6 gift-box">
-            <div
-              class="d-flex flex-column justify-content-center align-items-center text-center"
-            >
+          <div class="col-md-6">
+            <div class="card shadow text-center p-4 h-100">
               <img
                 src="./img/logo-bri.png"
                 alt="BRI QR"
-                class="img-fluid mb-3 img-fixed-size"
+                class="img-fluid mx-auto mb-3 img-fixed-size"
+                style="max-width: 120px"
               />
               <p class="mb-1">No Rek: <strong>0387 0106 4321 505</strong></p>
               <p>Atas Nama: <strong>Onggi Sanjaya</strong></p>
@@ -386,27 +397,34 @@
           </div>
 
           <!-- Kolom Kanan -->
-          <div class="col-md-6 gift-box">
-            <div
-              class="d-flex flex-column justify-content-center align-items-center text-center"
-            >
+          <div class="col-md-6">
+            <div class="card shadow text-center p-4 h-100">
               <img
                 src="./img/logo-mandiri.png"
                 alt="Mandiri QR"
-                class="img-fluid mb-3 img-fixed-size"
+                class="img-fluid mx-auto mb-3 img-fixed-size"
+                style="max-width: 120px"
               />
               <p class="mb-1">No Rek: <strong>1330 0285 0808 3</strong></p>
               <p>Atas Nama: <strong>Resti Susilawati</strong></p>
             </div>
           </div>
         </div>
+
+        <!-- Ucapan Terima Kasih -->
+        <p class="text-center mt-5 fst-italic text-muted">
+          Terima kasih atas doa restu dan tanda kasih yang diberikan. Semoga
+          Allah SWT membalas dengan keberkahan yang berlipat ganda.
+        </p>
       </section>
     </div>
 
     <!-- Location Section -->
     <div class="page-section" id="location">
       <section class="container py-5">
-        <h2 class="section-title text-center mb-5">Lokasi</h2>
+        <h2 class="section-title text-center mb-5">
+          <i class="fa fa-thumb-tack text-danger" aria-hidden="true"></i> Lokasi
+        </h2>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d506882.1397441747!2d106.6530713!3d-7.0073141!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e687eb622a1e637%3A0x5b3a8c6cd1d5af0c!2sPadaluyu%2C%20Kec.%20Cikadu%2C%20Kabupaten%20Cianjur%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1743946853536!5m2!1sid!2sid"
           width="600"
@@ -422,7 +440,10 @@
     <!-- Guestbook Section -->
     <div class="page-section page-5" id="guestbook">
       <section class="container py-5">
-        <h2 class="section-title text-center mb-5">Ucapan & Doa</h2>
+        <h2 class="section-title text-center mb-5">
+          <i class="fa fa-commenting text-primary" aria-hidden="true"></i>
+          Ucapan & Doa
+        </h2>
         <form id="guestbookForm" name="submit-to-google-sheet-guestbook">
           <div class="mb-3">
             <label for="name">Nama:</label>
@@ -455,13 +476,38 @@
 
     <!-- Footer Section -->
     <footer class="footer py-4 text-center">
-      <p>
+      <p class="mb-2">
         &copy; 2025 Undangan Pernikahan.
-        <i
-          >By:
-          <a href="mailto:onggisanjaya@gmail.com">onggisanjaya@gmail.com</a></i
-        >
+        <i>
+          By:
+          <a href="mailto:onggisanjaya@gmail.com">onggisanjaya</a>
+        </i>
       </p>
+
+      <!-- Media Sosial -->
+      <div class="social-icons mt-2">
+        <a
+          href="https://instagram.com/onggisanjaya"
+          target="_blank"
+          class="text-decoration-none text-danger mx-2"
+        >
+          <i class="fab fa-instagram fa-lg"></i>
+        </a>
+        <a
+          href="https://facebook.com/onggisanjaya"
+          target="_blank"
+          class="text-decoration-none text-primary mx-2"
+        >
+          <i class="fab fa-facebook fa-lg"></i>
+        </a>
+        <a
+          href="https://wa.me/6281234567890"
+          target="_blank"
+          class="text-decoration-none text-success mx-2"
+        >
+          <i class="fab fa-whatsapp fa-lg"></i>
+        </a>
+      </div>
     </footer>
 
     <!-- Swiper JS -->
