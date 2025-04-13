@@ -69,7 +69,7 @@
               <a class="nav-link" href="#location">Lokasi</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#guestbook">Buku Tamu</a>
+              <a class="nav-link" href="#guestbook">Ucapan</a>
             </li>
           </ul>
         </div>
@@ -83,7 +83,7 @@
           <h1>Undangan Pernikahan</h1>
           <h3>Onggi & Resti</h3>
           <div class="button-container mt-4">
-            <a href="#location" class="btn btn-outline-primary">Lihat Lokasi</a>
+            <!-- <a href="#location" class="btn btn-outline-primary">Lihat Lokasi</a> -->
             <button type="button" class="btn btn-primary" id="openModal">
               Konfirmasi Kehadiran
             </button>
@@ -93,42 +93,66 @@
     </div>
 
     <!-- Orang Tua Mempelai Section -->
-    <div class="page-section page-5" id="parents">
-      <section class="container py-5">
+    <div class="page-section page-5">
+      <section id="parents" class="container py-5">
         <h2 class="section-title text-center mb-5">
-          <i class="fas fa-venus-mars text-success"></i> Orang Tua Kami
+          <i class="fas fa-venus-mars text-success me-2"></i> Orang Tua Kami
         </h2>
-        <div class="row justify-content-center">
-          <!-- Orang Tua Mempelai Pria -->
+
+        <div class="row justify-content-center align-items-stretch">
+          <!-- Keluarga Mempelai Pria -->
           <div class="col-md-5 mb-4">
-            <div class="card border-0 shadow-lg rounded-4 p-3">
-              <div class="card-body text-center">
-                <i class="fas fa-mars fa-2x mb-3 text-primary"></i>
-                <h4 class="card-title mb-3">Keluarga Mempelai Pria</h4>
-                <p class="card-text mb-1">
-                  <strong>Ayah:</strong> Mista Hamdani
-                </p>
-                <p class="card-text"><strong>Ibu:</strong> Sari Susanti</p>
+            <div
+              class="card border-0 shadow-lg rounded-4 p-4 h-100 bg-white text-center"
+            >
+              <div class="mb-3">
+                <i class="fas fa-male fa-3x text-primary"></i>
               </div>
+              <h4 class="text-primary">Keluarga Mempelai Pria</h4>
+              <hr class="w-25 mx-auto mb-3" />
+              <p class="mb-1"><strong>Ayah:</strong> Mista Hamdani</p>
+              <p class="mb-3"><strong>Ibu:</strong> Sari Susanti</p>
+              <div class="bg-light p-3 rounded mb-3">
+                <p class="mb-1 text-muted">Putra Kami:</p>
+                <h5 class="mb-0">Onggi Sanjaya</h5>
+                <i class="fas fa-user fa-sm text-secondary"></i>
+              </div>
+              <p class="fst-italic text-muted small">
+                "Kami dengan tulus merestui dan mendoakan kebahagiaan anak kami
+                dalam membangun rumah tangga yang sakinah, mawaddah, warahmah."
+              </p>
             </div>
           </div>
 
           <!-- Ornamen Tengah -->
           <div
-            class="col-md-2 d-flex align-items-center justify-content-center"
+            class="col-md-1 d-none d-md-flex align-items-center justify-content-center"
           >
             <i class="fas fa-heart fa-2x text-danger"></i>
           </div>
 
-          <!-- Orang Tua Mempelai Wanita -->
+          <!-- Keluarga Mempelai Wanita -->
           <div class="col-md-5 mb-4">
-            <div class="card border-0 shadow-lg rounded-4 p-3">
-              <div class="card-body text-center">
-                <i class="fas fa-venus fa-2x mb-3 text-danger"></i>
-                <h4 class="card-title mb-3">Keluarga Mempelai Wanita</h4>
-                <p class="card-text mb-1"><strong>Ayah:</strong> Dasep</p>
-                <p class="card-text"><strong>Ibu:</strong> Darwati</p>
+            <div
+              class="card border-0 shadow-lg rounded-4 p-4 h-100 bg-white text-center"
+            >
+              <div class="mb-3">
+                <i class="fas fa-female fa-3x text-danger"></i>
               </div>
+              <h4 class="text-danger">Keluarga Mempelai Wanita</h4>
+              <hr class="w-25 mx-auto mb-3" />
+              <p class="mb-1"><strong>Ayah:</strong> Dasep</p>
+              <p class="mb-3"><strong>Ibu:</strong> Darwati</p>
+              <div class="bg-light p-3 rounded mb-3">
+                <p class="mb-1 text-muted">Putri Kami:</p>
+                <h5 class="mb-0">Resti Susilawati</h5>
+                <i class="fas fa-user fa-sm text-secondary"></i>
+              </div>
+              <p class="fst-italic text-muted small">
+                "Dengan penuh cinta, kami menyambut dan mendoakan hari bahagia
+                anak kami, semoga dipenuhi kebahagiaan dan berkah dari Allah
+                SWT."
+              </p>
             </div>
           </div>
         </div>
@@ -420,14 +444,14 @@
     </div>
 
     <!-- Location Section -->
-    <div class="page-section" id="location">
-      <section class="container py-5">
-        <h2 class="section-title text-center mb-5">
+    <div class="page-section full-height">
+      <section id="location" class="container-fluid py-5">
+        <h2 class="section-title text-center mb-4">
           <i class="fa fa-thumb-tack text-danger" aria-hidden="true"></i> Lokasi
         </h2>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d506882.1397441747!2d106.6530713!3d-7.0073141!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e687eb622a1e637%3A0x5b3a8c6cd1d5af0c!2sPadaluyu%2C%20Kec.%20Cikadu%2C%20Kabupaten%20Cianjur%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1743946853536!5m2!1sid!2sid"
-          width="600"
+          width="100%"
           height="450"
           style="border: 0"
           allowfullscreen=""
@@ -438,8 +462,8 @@
     </div>
 
     <!-- Guestbook Section -->
-    <div class="page-section page-5" id="guestbook">
-      <section class="container py-5">
+    <div class="page-section page-5">
+      <section id="guestbook" class="container py-5">
         <h2 class="section-title text-center mb-5">
           <i class="fa fa-commenting text-primary" aria-hidden="true"></i>
           Ucapan & Doa

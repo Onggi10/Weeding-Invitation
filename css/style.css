@@ -332,8 +332,17 @@ section {
   border-radius: 10px;
   width: 100%;
 }
+#location {
+  scroll-margin-top: 78px; /* atau sesuai tinggi navbar */
+  padding-top: 80px; /* untuk tampilan statis juga */
+}
 
 /* Guestbook Section */
+#guestbook {
+  scroll-margin-top: 78px; /* atau sesuai tinggi navbar */
+  padding-top: 120px; /* untuk tampilan statis juga */
+}
+
 #guestbookForm {
   max-width: 500px;
   margin: 0 auto;
@@ -713,4 +722,21 @@ dialog {
 .swiper-pagination-bullet-active {
   opacity: 1;
   background: #a3533c;
+}
+
+.map-responsive {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.map-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
